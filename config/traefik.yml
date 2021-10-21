@@ -23,13 +23,13 @@ providers:
     exposedByDefault: false
     watch: true
   file:
-    filename: /config/basic-config.yml
+    filename: /configurations/basic-config.yml
 
 certificatesResolvers:
   letsencrypt:
     acme:
       email: webmaster@localhost
-      storage: /acme/acme.json
+      storage: acme.json
       keyType: EC384
       httpChallenge:
         entryPoint: web
