@@ -10,7 +10,7 @@ http:
     user-auth:
       basicAuth:
         users:
-        # Generated with h2passwd  - "PASSWORD"
+          - '{{env "TRAEFIK_PASSWD_DATA"}}'
 
 tls:
   options:

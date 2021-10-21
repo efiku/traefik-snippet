@@ -18,11 +18,14 @@ services:
       - ./acme/acme.json:/acme.json
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - TRAEFIK_EMAIL
+      - TRAEFIK_PASSWD_DATA
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=proxy"
       - "traefik.http.routers.traefik-secure.entrypoints=websecure"
-      - "traefik.http.routers.traefik-secure.rule=Host(`monitor.localhost`)"
+      - "traefik.http.routers.traefik-secure.rule=Host(`${TRAEFIK_MONITOR_HOST}`)"
       - "traefik.http.routers.traefik-secure.middlewares=user-auth@file"
       - "traefik.http.routers.traefik-secure.service=api@internal"
 networks:
