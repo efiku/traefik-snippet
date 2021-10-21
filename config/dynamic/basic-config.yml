@@ -10,7 +10,7 @@ http:
     user-auth:
       basicAuth:
         users:
-          - '{{env "TRAEFIK_PASSWD_DATA"}}'
+          - {{ env "IN_TRAEFIK_PASSWD_DATA" | trimAll "\"" }}
 
 tls:
   options:

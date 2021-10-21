@@ -28,7 +28,6 @@ providers:
 certificatesResolvers:
   letsencrypt:
     acme:
-      email: {{env "TRAEFIK_EMAIL"}}
       storage: acme.json
       keyType: EC384
       httpChallenge:

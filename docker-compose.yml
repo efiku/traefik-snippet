@@ -19,8 +19,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
-      - TRAEFIK_EMAIL
-      - TRAEFIK_PASSWD_DATA
+      TRAEFIK_CERTIFICATESRESOLVERS_LE_ACME_EMAIL: ${TRAEFIK_EMAIL}
+      IN_TRAEFIK_PASSWD_DATA: ${TRAEFIK_PASSWD_DATA}
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=proxy"
